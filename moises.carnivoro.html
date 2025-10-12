@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnívoras Express - Plantas Exóticas Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --primary-light: #34d399;
+            --accent: #ef4444;
+            --accent-light: #f87171;
+            --dark: #0f172a;
+            --dark-alt: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --purple: #8b5cf6;
+            --gradient-jungle: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+            --gradient-exotic: linear-gradient(135deg, #f59e0b 0%, #ef4444 50%, #ec4899 100%);
+            --shadow-glow: 0 0 30px rgba(16, 185, 129, 0.3);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to bottom, #0f172a 0%, #1e293b 100%);
+            color: var(--light);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Moderno */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-jungle);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            animation: float 3s ease-in-out infinite;
+            box-shadow: var(--shadow-glow);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+
+        .logo-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-jungle);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .logo-text p {
+            font-size: 0.7rem;
+            color: var(--gray);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-jungle);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::before {
+            width: 60%;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-light);
+        }
+
+        .carrito-icon {
+            background: var(--gradient-jungle);
+            padding: 12px 20px;
+            border-radius: 50px;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .carrito-icon:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.5);
+        }
+
+        #contador-carrito {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--accent);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 2px solid var(--dark);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        /* Hero Impactante */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                url('https://images.unsplash.com/photo-1585375696544-c600e1e0bbf1?w=1920&q=90') center/cover,
+                linear-gradient(135deg, rgba(16, 185, 129, 0.4) 0%, rgba(15, 23, 42, 0.8) 100%);
+            background-blend-mode: overlay;
+            z-index: -1;
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: particleFloat 15s infinite;
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: heroFadeIn 1.2s ease;
+        }
+
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid var(--primary);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-light);
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: slideDown 1s ease 0.3s backwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideDown 1s ease 0.5s backwards;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: rgba(248, 250, 252, 0.9);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            animation: slideDown 1s ease 0.7s backwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            animation: slideDown 1s ease 0.9s backwards;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--gradient-jungle);
+            color: white;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(248, 250, 252, 0.1);
+            color: white;
+            border: 2px solid var(--primary);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(248, 250, 252, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Secciones */
+        .section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-light);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Filtros Modernos */
+        .filtros {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-filtro {
+            padding: 14px 32px;
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            background: rgba(248, 250, 252, 0.05);
+            color: var(--light);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-filtro:hover,
+        .btn-filtro.active {
+            background: var(--gradient-jungle);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Grid de Productos Premium */
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .producto-card {
+            background: rgba(248, 250, 252, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            backdrop-filter: blur(20px);
+            position: relative;
+        }
+
+        .producto-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-jungle);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 0;
+        }
+
+        .producto-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(16, 185, 129, 0.3);
+            border-color: var(--primary);
+        }
+
+        .producto-imagen {
+            height: 320px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .producto-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .producto-card:hover .producto-imagen img {
+            transform: scale(1.15) rotate(2deg);
+        }
+
+        .producto-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient-exotic);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            z-index: 2;
+            box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+            animation: badgePulse 3s infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .producto-info {
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .categoria-tag {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--primary-light);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .producto-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .producto-descripcion {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .producto-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .precio {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-jungle);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .agregar-carrito-btn {
+            background: var(--gradient-jungle);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .agregar-carrito-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.5);
+        }
+
+        /* Detalle de Producto */
+        .producto-detalle .detalle-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+            background: rgba(248, 250, 252, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 4rem;
+            border-radius: 30px;
+            backdrop-filter: blur(20px);
+        }
+
+        .detalle-imagen {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-radius: 24px;
+            overflow: hidden;
+            height: 600px;
+            position: sticky;
+            top: 120px;
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.2);
+        }
+
+        .detalle-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .detalle-imagen:hover img {
+            transform: scale(1.1);
+        }
+
+        .detalle-info h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .detalle-info .precio {
+            font-size: 3rem;
+            margin: 2rem 0;
+        }
+
+        .descripcion {
+            color: var(--gray);
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin: 2rem 0;
+        }
+
+        .cantidad {
+            background: rgba(248, 250, 252, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+        }
+
+        .cantidad label {
+            display: block;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cantidad input {
+            width: 140px;
+            padding: 16px;
+            border: 2px solid var(--primary);
+            background: rgba(248, 250, 252, 0.05);
+            color: white;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .agregar-carrito {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.3rem;
+            margin-top: 2rem;
+        }
+
+        /* Carrito */
+        .carrito-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .carrito-item {
+            display: flex;
+            background: rgba(248, 250, 252, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+
+        .carrito-item:hover {
+            transform: translateX(15px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.2);
+        }
+
+        .carrito-item-imagen {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-radius: 16px;
+            margin-right: 2rem;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .carrito-item-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carrito-item-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .carrito-item-precio {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-jungle);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 1rem 0;
+        }
+
+        .carrito-item-cantidad {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .carrito-item-cantidad button {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: var(--gradient-jungle);
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .carrito-item-cantidad button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+        }
+
+        .carrito-item-cantidad span {
+            font-size: 1.3rem;
+            font-weight: 700;
+            min-width: 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .carrito-item-eliminar {
+            background: var(--gradient-exotic);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+        }
+
+        .carrito-item-eliminar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
+        }
+
+        .carrito-resumen {
+            background: rgba(248, 250, 252, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 3rem;
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .carrito-resumen h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .resumen-detalle p {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        .resumen-detalle .total {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 800;
+            border-top: 2px solid var(--primary);
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+            background: var(--gradient-jungle);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .carrito-vacio {
+            text-align: center;
+            padding: 5rem;
+            background: rgba(248, 250, 252, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+        }
+
+        .carrito-vacio-icon {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            opacity: 0.5;
+        }
+
+        .carrito-vacio h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        /* Checkout */
+        .checkout-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            background: rgba(248, 250, 252, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 3rem;
+            border-radius: 24px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(20px);
+        }
+
+        .form-group h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 18px;
+            margin-bottom: 1.5rem;
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            background: rgba(248, 250, 252, 0.05);
+            color: white;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder {
+            color: var(--gray);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+        }
+
+        /* Gracias */
+        .gracias-content {
+            text-align: center;
+            background: rgba(248, 250, 252, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 5rem;
+            border-radius: 30px;
+            backdrop-filter: blur(20px);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .gracias-icon {
+            font-size: 6rem;
+            margin-bottom: 2rem;
+            animation: successPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes successPop {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .gracias-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-jungle);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gracias-content p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 23, 42, 0.8);
+            border-top: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 5rem 0 2rem;
+            margin-top: 6rem;
+            backdrop-filter: blur(20px);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section ul li {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-light);
+            padding-left: 8px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(16, 185, 129, 0.2);
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* About */
+        .about-content {
+            background: rgba(248, 250, 252, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 4rem;
+            border-radius: 30px;
+            backdrop-filter: blur(20px);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        /* Páginas */
+        .page {
+            display: none;
+            animation: pageEnter 0.6s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes pageEnter {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .grid-productos {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content h2 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .producto-detalle .detalle-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 2.5rem;
+            }
+
+            .detalle-imagen {
+                position: static;
+                height: 400px;
+            }
+
+            .carrito-content {
+                grid-template-columns: 1fr;
+            }
+
+            .carrito-resumen {
+                position: static;
+            }
+
+            .carrito-item {
+                flex-direction: column;
+            }
+
+            .carrito-item-imagen {
+                width: 100%;
+                height: 250px;
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-content">
+            <a href="#" onclick="mostrarPagina('inicio')" class="logo">
+                <div class="logo-icon">🌿</div>
+                <div class="logo-text">
+                    <h1>Carnívoras Express</h1>
+                    <p>Premium Plants</p>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="mostrarPagina('inicio')">Inicio</a></li>
+                    <li><a href="#" onclick="mostrarPagina('productos')">Catálogo</a></li>
+                    <li><a href="#sobre-nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li class="carrito-icon">
+                        <a href="#" onclick="mostrarPagina('carrito')">
+                            🛒 <span id="contador-carrito">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Página de Inicio -->
+    <section id="inicio" class="page active">
+        <section class="hero">
+            <div class="hero-particles" id="particles"></div>
+            <div class="container hero-content">
+                <div class="hero-badge">🌟 Colección Premium 2025</div>
+                <h2>El Fascinante Mundo<br>de las Carnívoras</h2>
+                <p>Explora nuestra exclusiva colección de plantas carnívoras exóticas. Cada especie es cultivada con dedicación para garantizar su salud y belleza única.</p>
+                <div class="cta-buttons">
+                    <a href="#" onclick="mostrarPagina('productos')" class="btn btn-primary">Explorar Catálogo</a>
+                    <a href="#sobre-nosotros" class="btn btn-secondary">Conocer Más</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section productos-destacados">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">Destacados</div>
+                    <h2 class="section-title">Colección Premium</h2>
+                    <p class="section-subtitle">Selección cuidadosa de las especies más exóticas y fascinantes</p>
+                </div>
+                <div class="grid-productos" id="productos-destacados"></div>
+            </div>
+        </section>
+
+        <section class="section about" id="sobre-nosotros">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">Nuestra Historia</div>
+                    <h2 class="section-title">Pasión por lo Exótico</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>En Carnívoras Express somos más que una tienda: somos una comunidad de apasionados por las plantas carnívoras. Desde 2018, hemos dedicado nuestra experiencia a cultivar y distribuir las especies más fascinantes del mundo vegetal.</p>
+                        <p>Cada planta en nuestra colección es cultivada con amor y expertise, garantizando que recibas ejemplares saludables y vigorosos. Nuestro equipo de especialistas está siempre disponible para asesorarte en cada paso del cultivo.</p>
+                        <p>Trabajamos con cultivadores especializados de todo el mundo para traerte variedades únicas que harán de tu colección algo verdaderamente especial.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contacto">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Contacto</h3>
+                        <p>📧 info@carnivorasexpress.com</p>
+                        <p>📱 +51 987 654 321</p>
+                        <p>📍 Chiclayo, Lambayeque, Perú</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Navegación</h3>
+                        <ul>
+                            <li><a href="#" onclick="mostrarPagina('inicio')">Inicio</a></li>
+                            <li><a href="#" onclick="mostrarPagina('productos')">Catálogo</a></li>
+                            <li><a href="#" onclick="mostrarPagina('carrito')">Carrito</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Horarios de Atención</h3>
+                        <p>Lunes - Viernes: 9:00 - 18:00</p>
+                        <p>Sábado: 10:00 - 14:00</p>
+                        <p>Domingo: Cerrado</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Síguenos</h3>
+                        <p>Instagram: @carnivorasexpress</p>
+                        <p>Facebook: Carnívoras Express</p>
+                        <p>TikTok: @carnivorasexpress</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Carnívoras Express. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <!-- Página de Productos -->
+    <section id="productos" class="page">
+        <section class="section" style="margin-top: 100px;">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">Catálogo Completo</div>
+                    <h2 class="section-title">Todas las Especies</h2>
+                    <p class="section-subtitle">Encuentra la planta carnívora perfecta para tu colección</p>
+                </div>
+
+                <div class="filtros">
+                    <button class="btn-filtro active" onclick="filtrarProductos('todos')">Todos</button>
+                    <button class="btn-filtro" onclick="filtrarProductos('Planta')">Plantas</button>
+                    <button class="btn-filtro" onclick="filtrarProductos('Accesorio')">Accesorios</button>
+                    <button class="btn-filtro" onclick="filtrarProductos('Sustrato')">Sustratos</button>
+                </div>
+
+                <div class="grid-productos" id="grid-productos"></div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Página de Detalle -->
+    <section id="detalle" class="page">
+        <section class="section producto-detalle" style="margin-top: 100px;">
+            <div class="container">
+                <div class="detalle-content" id="detalle-producto"></div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Página de Carrito -->
+    <section id="carrito" class="page">
+        <section class="section" style="margin-top: 100px;">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">Tu Selección</div>
+                    <h2 class="section-title">Carrito de Compras</h2>
+                </div>
+                <div id="carrito-container"></div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Página de Checkout -->
+    <section id="checkout" class="page">
+        <section class="section" style="margin-top: 100px;">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">Finalizar Compra</div>
+                    <h2 class="section-title">Checkout</h2>
+                </div>
+                <div class="checkout-content">
+                    <form id="form-checkout">
+                        <div class="form-group">
+                            <h3>Información Personal</h3>
+                            <input type="text" placeholder="Nombre completo" required>
+                            <input type="email" placeholder="Email" required>
+                            <input type="tel" placeholder="Teléfono" required>
+                        </div>
+                        <div class="form-group">
+                            <h3>Dirección de Envío</h3>
+                            <input type="text" placeholder="Dirección" required>
+                            <input type="text" placeholder="Ciudad" required>
+                            <input type="text" placeholder="Código Postal" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Confirmar Pedido</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Página de Gracias -->
+    <section id="gracias" class="page">
+        <section class="section" style="margin-top: 100px;">
+            <div class="container">
+                <div class="gracias-content">
+                    <div class="gracias-icon">✅</div>
+                    <h2>¡Pedido Confirmado!</h2>
+                    <p>Gracias por tu compra. Recibirás un email de confirmación en breve.</p>
+                    <p>Tu pedido será procesado y enviado en las próximas 24-48 horas.</p>
+                    <a href="#" onclick="mostrarPagina('inicio')" class="btn btn-primary">Volver al Inicio</a>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <script>
+        // Productos
+        const productos = [
+            {
+                id: 1,
+                nombre: "Dionaea muscipula 'Venus'",
+                categoria: "Planta",
+                precio: 45.00,
+                imagen: "https://jumpseller.s3.eu-west-1.amazonaws.com/store/carnivorassantiago/assets/venus_ara_a.jpg",
+                descripcion: "La clásica Venus atrapamoscas. Fascinante planta con hojas modificadas en trampas. Ideal para principiantes.",
+                destacado: true
+            },
+            {
+                id: 2,
+                nombre: "Nepenthes alata",
+                categoria: "Planta",
+                precio: 65.00,
+                imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgqN5ZKAe_O6iMluYkbZCU-NPxKw7tbdywWg&s",
+                descripcion: "Planta jarra tropical con jarras rojas espectaculares. Perfecta para interiores luminosos.",
+                destacado: true
+            },
+            {
+                id: 3,
+                nombre: "Drosera capensis",
+                categoria: "Planta",
+                precio: 38.00,
+                imagen: "https://images.unsplash.com/photo-1615671524827-c1fe3973b648?w=600&q=80",
+                descripcion: "Rocío del sol del Cabo. Hojas cubiertas de tentáculos pegajosos brillantes. Muy resistente.",
+                destacado: true
+            },
+            {
+                id: 4,
+                nombre: "Sarracenia purpurea",
+                categoria: "Planta",
+                precio: 52.00,
+                imagen: "https://cdn.monstera-app.com/p/150d5a03a918ea3e9d862b8d99170b1c0a207057d9b44602ba2902cb8843b861.jpg/sarracenia-purpurea-purple-carnivorous-plant.webp",
+                descripcion: "Planta jarra púrpura. Hojas en forma de trompeta con coloración intensa. Resistente al frío.",
+                destacado: false
+            },
+            {
+                id: 5,
+                nombre: "Sustrato Premium Carnívoras",
+                categoria: "Sustrato",
+                precio: 18.00,
+                imagen: "https://plantadecor.com/cdn/shop/files/26776.jpg?v=1724801872&width=1946",
+                descripcion: "Mezcla especial de turba rubia y perlita. pH ácido ideal para carnívoras. Bolsa de 5L.",
+                destacado: false
+            },
+            {
+                id: 6,
+                nombre: "Kit de Cultivo Completo",
+                categoria: "Accesorio",
+                precio: 85.00,
+                imagen: "https://confiabonos.co/wp-content/uploads/2022/05/Sustrato-cactus-y-suculentas-1.jpg.webp",
+                descripcion: "Todo lo necesario: maceta, sustrato, pulverizador y guía de cultivo detallada.",
+                destacado: true
+            },
+            {
+                id: 7,
+                nombre: "Pinguicula grandiflora",
+                categoria: "Planta",
+                precio: 42.00,
+                imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXF9xKsAaNzm6Mx7X12Gag5F7QNTeAodS9mQ&s",
+                descripcion: "Grasilla de hojas carnosas y pegajosas. Flores violetas espectaculares en primavera.",
+                destacado: false
+            },
+            {
+                id: 8,
+                nombre: "Nepenthes ventricosa",
+                categoria: "Planta",
+                precio: 78.00,
+                imagen: "https://s3-eu-west-1.amazonaws.com/assets.botanic.cam.ac.uk/wp-content/uploads/2024/06/Nepenthes-alata-2000x1125.jpg",
+                descripcion: "Jarras robustas y grandes con colores vibrantes. Especie de altitud, fácil de cultivar.",
+                destacado: false
+            }
+        ];
+
+        let carrito = [];
+        let productoActual = null;
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function() {
+            cargarProductosDestacados();
+            cargarTodosLosProductos();
+            actualizarContadorCarrito();
+            crearParticulas();
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Form checkout
+            const formCheckout = document.getElementById('form-checkout');
+            if (formCheckout) {
+                formCheckout.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    carrito = [];
+                    actualizarContadorCarrito();
+                    mostrarPagina('gracias');
+                });
+            }
+        });
+
+        // Crear partículas
+        function crearParticulas() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Navegación
+        function mostrarPagina(pagina) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pagina).classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // Cargar productos destacados
+        function cargarProductosDestacados() {
+            const container = document.getElementById('productos-destacados');
+            const destacados = productos.filter(p => p.destacado);
+            container.innerHTML = destacados.map(producto => crearTarjetaProducto(producto)).join('');
+        }
+
+        // Cargar todos los productos
+        function cargarTodosLosProductos() {
+            const container = document.getElementById('grid-productos');
+            container.innerHTML = productos.map(producto => crearTarjetaProducto(producto)).join('');
+        }
+
+        // Crear tarjeta de producto
+        function crearTarjetaProducto(producto) {
+            return `
+                <div class="producto-card" onclick="verDetalle(${producto.id})">
+                    <div class="producto-imagen">
+                        <img src="${producto.imagen}" alt="${producto.nombre}">
+                        ${producto.destacado ? '<span class="producto-badge">⭐ Destacado</span>' : ''}
+                    </div>
+                    <div class="producto-info">
+                        <span class="categoria-tag">${producto.categoria}</span>
+                        <h3>${producto.nombre}</h3>
+                        <p class="producto-descripcion">${producto.descripcion.substring(0, 80)}...</p>
+                        <div class="producto-footer">
+                            <span class="precio">S/ ${producto.precio.toFixed(2)}</span>
+                            <button class="agregar-carrito-btn" onclick="event.stopPropagation(); agregarAlCarrito(${producto.id})">
+                                Agregar 🛒
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Ver detalle
+        function verDetalle(id) {
+            productoActual = productos.find(p => p.id === id);
+            const container = document.getElementById('detalle-producto');
+            container.innerHTML = `
+                <div class="detalle-imagen">
+                    <img src="${productoActual.imagen}" alt="${productoActual.nombre}">
+                </div>
+                <div class="detalle-info">
+                    <span class="categoria-tag">${productoActual.categoria}</span>
+                    <h1>${productoActual.nombre}</h1>
+                    <p class="precio">S/ ${productoActual.precio.toFixed(2)}</p>
+                    <p class="descripcion">${productoActual.descripcion}</p>
+                    <div class="cantidad">
+                        <label>Cantidad:</label>
+                        <input type="number" id="cantidad-detalle" value="1" min="1" max="10">
+                    </div>
+                    <button class="btn btn-primary agregar-carrito" onclick="agregarAlCarritoDesdeDetalle()">
+                        Agregar al Carrito 🛒
+                    </button>
+                </div>
+            `;
+            mostrarPagina('detalle');
+        }
+
+        // Agregar al carrito
+        function agregarAlCarrito(id) {
+            const producto = productos.find(p => p.id === id);
+            const itemExistente = carrito.find(item => item.id === id);
+            
+            if (itemExistente) {
+                itemExistente.cantidad++;
+            } else {
+                carrito.push({...producto, cantidad: 1});
+            }
+            
+            actualizarContadorCarrito();
+            mostrarNotificacion('¡Producto agregado al carrito!');
+        }
+
+        function agregarAlCarritoDesdeDetalle() {
+            const cantidad = parseInt(document.getElementById('cantidad-detalle').value);
+            const itemExistente = carrito.find(item => item.id === productoActual.id);
+            
+            if (itemExistente) {
+                itemExistente.cantidad += cantidad;
+            } else {
+                carrito.push({...productoActual, cantidad: cantidad});
+            }
+            
+            actualizarContadorCarrito();
+            mostrarNotificacion(`¡${cantidad} producto(s) agregado(s) al carrito!`);
+        }
+
+        // Actualizar contador
+        function actualizarContadorCarrito() {
+            const total = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+            document.getElementById('contador-carrito').textContent = total;
+            actualizarCarrito();
+        }
+
+        // Actualizar carrito
+        function actualizarCarrito() {
+            const container = document.getElementById('carrito-container');
+            
+            if (carrito.length === 0) {
+                container.innerHTML = `
+                    <div class="carrito-vacio">
+                        <div class="carrito-vacio-icon">🛒</div>
+                        <h3>Tu carrito está vacío</h3>
+                        <p style="color: var(--gray); margin-bottom: 2rem;">Agrega productos para comenzar tu compra</p>
+                        <a href="#" onclick="mostrarPagina('productos')" class="btn btn-primary">Ver Productos</a>
+                    </div>
+                `;
+                return;
+            }
+
+            const subtotal = carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+            const envio = 10;
+            const total = subtotal + envio;
+
+            container.innerHTML = `
+                <div class="carrito-content">
+                    <div class="carrito-items">
+                        ${carrito.map(item => `
+                            <div class="carrito-item">
+                                <div class="carrito-item-imagen">
+                                    <img src="${item.imagen}" alt="${item.nombre}">
+                                </div>
+                                <div class="carrito-item-info">
+                                    <h3>${item.nombre}</h3>
+                                    <span class="categoria-tag">${item.categoria}</span>
+                                    <p class="carrito-item-precio">S/ ${item.precio.toFixed(2)}</p>
+                                    <div class="carrito-item-cantidad">
+                                        <button onclick="cambiarCantidad(${item.id}, -1)">-</button>
+                                        <span>${item.cantidad}</span>
+                                        <button onclick="cambiarCantidad(${item.id}, 1)">+</button>
+                                    </div>
+                                    <button class="carrito-item-eliminar" onclick="eliminarDelCarrito(${item.id})">
+                                        Eliminar
+                                    </button>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="carrito-resumen">
+                        <h3>Resumen del Pedido</h3>
+                        <div class="resumen-detalle">
+                            <p><span>Subtotal:</span><span>S/ ${subtotal.toFixed(2)}</span></p>
+                            <p><span>Envío:</span><span>S/ ${envio.toFixed(2)}</span></p>
+                            <p class="total"><span>Total:</span><span>S/ ${total.toFixed(2)}</span></p>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%;" onclick="mostrarPagina('checkout')">
+                            Proceder al Checkout
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Cambiar cantidad
+        function cambiarCantidad(id, delta) {
+            const item = carrito.find(i => i.id === id);
+            if (item) {
+                item.cantidad += delta;
+                if (item.cantidad <= 0) {
+                    eliminarDelCarrito(id);
+                } else {
+                    actualizarContadorCarrito();
+                }
+            }
+        }
+
+        // Eliminar del carrito
+        function eliminarDelCarrito(id) {
+            carrito = carrito.filter(item => item.id !== id);
+            actualizarContadorCarrito();
+        }
+
+        // Filtrar productos
+        function filtrarProductos(categoria) {
+            document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const container = document.getElementById('grid-productos');
+            const productosFiltrados = categoria === 'todos' 
+                ? productos 
+                : productos.filter(p => p.categoria === categoria);
+            
+            container.innerHTML = productosFiltrados.map(producto => crearTarjetaProducto(producto)).join('');
+        }
+
+        // Notificación
+        function mostrarNotificacion(mensaje) {
+            const notif = document.createElement('div');
+            notif.textContent = mensaje;
+            notif.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: var(--gradient-jungle);
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+                z-index: 10000;
+                font-weight: 600;
+                animation: slideIn 0.3s ease;
+            `;
+            document.body.appendChild(notif);
+            setTimeout(() => {
+                notif.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notif.remove(), 300);
+            }, 3000);
+        }
+    </script>
+
+    <style>
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+    </style>
+</body>
+</html>
