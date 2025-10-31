@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Práctico - Comercio Electrónico</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 20px;
+        }
+        
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            background-color: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #2E7D32;
+            border: 2px solid #4CAF50;
+        }
+        
+        h1, h2, h3, h4 {
+            color: #2E7D32;
+            margin: 20px 0 10px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 22px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            font-size: 18px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .info-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .highlight {
+            background-color: #fffde7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #ffd600;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            h2 {
+                font-size: 20px;
+            }
+            
+            table {
+                font-size: 14px;
+            }
+            
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div>Logotipo IESRFA</div>
+            </div>
+            <h1>IESRFA</h1>
+            <p>2025</p>
+            <p><strong>Docente:</strong> Robin Falen Larrea</p>
+            <p><strong>Lic. Segura Medrano, David Moisés</strong></p>
+        </header>
+        
+        <div class="section">
+            <h2>Examen Práctico</h2>
+            <div class="info-box">
+                <p><strong>ACTIVIDAD:</strong> Comercio Electrónico</p>
+                <p><strong>Carrera:</strong> Arquitectura de Plataformas y Servicios de Tecnologías de la Información</p>
+                <p><strong>Ciclo y Turno:</strong> 6to Ciclo - Mañana</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>¿Hay hueco para mi proyecto en Internet?</h2>
+            <ol>
+                <li><strong>Es un nicho, no un mercado masivo:</strong> Las plantas carnívoras atraen a un público específico (coleccionistas, aficionados a la botánica, gente buscando hobbies diferentes) que valora la especialización y está dispuesto a pagar por ella. No es como vender rosas o suculentas.</li>
+                <li><strong>El comprador online de plantas ya existe:</strong> La tendencia de comprar plantas por internet se consolidó después de la pandemia. Tu cliente potencial ya está acostumbrado a este canal.</li>
+                <li><strong>Poca competencia local de calidad:</strong> Es probable que en tu zona no existan muchos viveros especializados solo en carnívoras. Los grandes viveros online suelen tratarlas como un producto más, sin el expertise y la dedicación que tú puedes ofrecer.</li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h2>¿QUÉ HAY QUE HACER?</h2>
+            
+            <h3>1. Infraestructura Digital:</h3>
+            <ul>
+                <li>Dominio y Hosting para la tienda online.</li>
+                <li>Plataforma de e-commerce (Shopify, WooCommerce, etc.).</li>
+                <li>Certificado SSL (seguridad).</li>
+            </ul>
+            
+            <h3>2. Infraestructura Física (Vivero/Operaciones):</h3>
+            <ul>
+                <li>Espacio para cultivo (invernadero, estanterías con luz artificial).</li>
+                <li>Materiales: macetas, sustratos especializados, herramientas.</li>
+                <li>Stock inicial de plantas (semillas, plántulas o plantas jóvenes).</li>
+            </ul>
+            
+            <h3>3. Logística y Envíos:</h3>
+            <ul>
+                <li>Material de empaque a prueba de golpes y que mantenga la humedad.</li>
+                <li>Acuerdo con couriers (empresas de mensajería) para envíos nacionales.</li>
+            </ul>
+            
+            <h3>4. Trámites Legales:</h3>
+            <ul>
+                <li>Constitución de la empresa (personería jurídica).</li>
+                <li>Permisos sanitarios para comercio de plantas (si aplica en tu país).</li>
+                <li>Registro de marca.</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>¿CUÁNDO HAY QUE HACERLO? (Cronograma Estimado)</h2>
+            
+            <h3>Mes 1: Planificación y Trámites</h3>
+            <ul>
+                <li>Legalizar la empresa, comprar dominio, contratar hosting.</li>
+                <li>Diseñar y desarrollar la tienda online.</li>
+            </ul>
+            
+            <h3>Mes 2: Infraestructura y Stock</h3>
+            <ul>
+                <li>Montar el espacio de cultivo.</li>
+                <li>Adquirir el stock inicial de plantas y materiales.</li>
+            </ul>
+            
+            <h3>Mes 3: Operaciones y Lanzamiento</h3>
+            <ul>
+                <li>Probar el proceso de empaque y envío.</li>
+                <li>Lanzar la página y comenzar con el marketing digital.</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>¿CUÁNTO ME VA A COSTAR? (Inversión Inicial Estimada)</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rubro</th>
+                        <th>Costo Estimado (S/)</th>
+                        <th>Detalles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Legales y Trámites</strong></td>
+                        <td>S/ 500 - S/ 1,500</td>
+                        <td>Registro de marca, constitución empresarial simple.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Plataforma Digital</strong></td>
+                        <td>S/ 1,200 - S/ 2,500/año</td>
+                        <td>Dominio, hosting premium, plantilla profesional, apps necesarias.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Infraestructura Física</strong></td>
+                        <td>S/ 2,000 - S/ 5,000</td>
+                        <td>Invernadero básico/estanterías, luces de cultivo, herramientas, sistema de riego.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Stock Inicial</strong></td>
+                        <td>S/ 1,500 - S/ 3,000</td>
+                        <td>Compra de 50-100 plantas jóvenes de diferentes especies y sustratos.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Material de Empaque</strong></td>
+                        <td>S/ 300 - S/ 600</td>
+                        <td>Cajas, fitosanitarios, material amortiguador, etiquetas.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Marketing Inicial</strong></td>
+                        <td>S/ 1,000 - S/ 2,000</td>
+                        <td>Creación de contenido profesional, campañas iniciales en redes sociales/Google.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fondo de Emergencia</strong></td>
+                        <td>S/ 1,000 - S/ 2,000</td>
+                        <td>Para imprevistos o para cubrir gastos los primeros meses sin ventas.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TOTAL INVERSIÓN</strong></td>
+                        <td><strong>S/ 7,500 - S/ 16,600</strong></td>
+                        <td>Depende de la escala y calidad con la que quieras</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>¿Qué se quiere conseguir con su proyecto?</h2>
+            
+            <h3>OBJETIVO PRINCIPAL</h3>
+            <p>Establecerte como <strong>la tienda online de referencia y especialista en plantas carnívoras</strong> para el mercado peruano (y potencialmente otros países de habla hispana).</p>
+            
+            <h3>OBJETIVOS ESPECÍFICOS QUE SE DETECTAN</h3>
+            <ol>
+                <li><strong>Comercial:</strong> Vender plantas carnívoras y kits de cultivo de manera online, generando ingresos estables y rentables.</li>
+                <li><strong>De Posicionamiento:</strong> Ser reconocido como una marca <strong>premium y experta</strong> en el nicho, no solo un vendedor más. Esto se ve en el diseño de tu página y el uso de "Colección Premium" y "Pasión por lo Exótico".</li>
+                <li><strong>Educativo y de Comunidad:</strong> Crear una comunidad de apasionados ("somos más que una tienda... una comunidad"). Quieres que la gente confíe en ti no solo para comprar, sino para aprender a cuidar sus plantas.</li>
+                <li><strong>De Valor Diferencial:</strong> Ofrecer una <strong>experiencia de compra segura y de calidad</strong> para un producto delicado (plantas vivas), resolviendo el problema de la logística y el desconocimiento del cliente.</li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h2>¿Hay realmente un nicho de mercado para mi producto o servicio en Internet?</h2>
+            
+            <h3>1. DIAGNÓSTICO: ¿Existe un nicho de mercado real?</h3>
+            
+            <div class="highlight">
+                <p><strong>SÍ, existe un nicho claro y viable.</strong> Estos son los indicadores:</p>
+            </div>
+            
+            <ul>
+                <li><strong>Búsquedas Online:</strong> Términos como "plantas carnívoras online", "cuidados Dionaea muscipula" o "comprar Nepenthes" tienen búsquedas constantes en Google y YouTube, demostrando interés activo.</li>
+                <li><strong>Comunidades Activas:</strong> Existen foros, grupos de Facebook y cuentas de Instagram especializadas y con miles de miembros/interactivos, lo que confirma la existencia de una comunidad apasionada.</li>
+                <li><strong>Oferta Fragmentada:</strong> La competencia son principalmente:
+                    <ul>
+                        <li>Viveros generalistas que no se especializan.</li>
+                        <li>Vendedores en marketplaces (como Mercado Libre) con poca información de cuidado.</li>
+                        <li>Esto deja un vacío para un <strong>especialista confiable</strong>.</li>
+                    </ul>
+                </li>
+                <li><strong>Tendencia Sostenible:</strong> El "hobby" de las plantas en casa se consolidó post-pandemia. Las plantas carnívoras, por su naturaleza exótica, captan un interés especial dentro de esta tendencia.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>Conclusión del Diagnóstico:</strong> No es un mercado masivo, pero es un <strong>nicho con demanda definida, un público dispuesto a pagar por calidad y conocimiento, y una competencia que no satisface por completo las necesidades del cliente.</strong></p>
+            </div>
+            
+            <h3>2. MODELO DE NEGOCIO</h3>
+            <p>Tu modelo de negocio es <strong>Venta Directa al Consumidor (B2C) Online + Educación.</strong></p>
+            
+            <ul>
+                <li><strong>Propuesta de Valor Principal:</strong>
+                    <ul>
+                        <li><strong>Producto:</strong> Plantas carnívoras saludables, exclusivas y bien cuidadas.</li>
+                        <li><strong>Servicio:</strong> Experiencia de compra segura para un ser vivo (empaque y envío especializados).</li>
+                        <li><strong>Conocimiento:</strong> Ser la guía experta del cliente (guías, soporte, comunidad).</li>
+                    </ul>
+                </li>
+                <li><strong>Fuentes de Ingreso:</strong>
+                    <ol>
+                        <li>Venta de plantas individuales.</li>
+                        <li>Venta de Kits de Inicio (mayor ticket promedio).</li>
+                        <li>(A futuro) Venta de sustratos, alimentos específicos o terrarios.</li>
+                    </ol>
+                </li>
+                <li><strong>Canales:</strong>
+                    <ul>
+                        <li>Tienda online propia (base principal).</li>
+                        <li>Redes sociales (Instagram, Facebook) para marketing y atención.</li>
+                        <li>(Opcional) Marketplaces como canal secundario.</li>
+                    </ul>
+                </li>
+                <li><strong>Segmento de Clientes:</strong>
+                    <ul>
+                        <li>Aficionados a la botánica y coleccionistas de plantas.</li>
+                        <li>Personas buscando un hobby diferente.</li>
+                        <li>Público joven-adulto influenciado por la cultura "plant lover".</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>3. PLANES DE ACTUACIÓN (Fases Clave)</h3>
+            
+            <h4>Fase 1: Consolidar la Base (Primeros 3 meses)</h4>
+            <ul>
+                <li><strong>Acción:</strong> Corregir errores en la web (typos) y asegurar que el proceso de compra (carrito, pasarela de pago) sea fluido y seguro.</li>
+                <li><strong>Acción:</strong> Desarrollar contenido educativo básico (guías de cuidado en PDF, posts en Instagram).</li>
+            </ul>
+            
+            <h4>Fase 2: Generar Confianza y Primeras Ventas (Meses 3-6)</h4>
+            <ul>
+                <li><strong>Acción:</strong> Implementar un sistema robusto de reseñas y testimonios en la web.</li>
+                <li><strong>Acción:</strong> Crear una página de "Preguntas Frecuentes" que aborde dudas sobre envíos, garantías y cuidados.</li>
+                <li><strong>Acción:</strong> Ejecutar campañas de marketing iniciales en redes sociales dirigidas a intereses específicos (jardinería, plantas exóticas).</li>
+            </ul>
+            
+            <h4>Fase 3: Escalar y Fidelizar (Meses 6 en adelante)</h4>
+            <ul>
+                <li><strong>Acción:</strong> Iniciar un programa de email marketing para nutrir a leads y fidelizar clientes.</li>
+                <li><strong>Acción:</strong> Explorar la venta cruzada con productos complementarios (sustratos, macetas especiales).</li>
+                <li><strong>Acción:</strong> Colaborar con micro-influencers del mundo "plant lover" para ampliar el alcance.</li>
+            </ul>
+        </div>
+        
+        <footer>
+            <p>Examen Práctico - Comercio Electrónico</p>
+            <p>IESRFA - 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
